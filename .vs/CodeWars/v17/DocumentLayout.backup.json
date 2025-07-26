@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CodingProj_CSharp\\CodeWars\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B8C34AD0-713C-4377-9FC6-D2EA4CE20B69}|CodeWars.csproj|d:\\codingproj_csharp\\codewars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8C34AD0-713C-4377-9FC6-D2EA4CE20B69}|CodeWars.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8C34AD0-713C-4377-9FC6-D2EA4CE20B69}|CodeWars.csproj|d:\\codingproj_csharp\\codewars\\codewars.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B8C34AD0-713C-4377-9FC6-D2EA4CE20B69}|CodeWars.csproj|solutionrelative:codewars.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CodeWars",
+              "DocumentMoniker": "D:\\CodingProj_CSharp\\CodeWars\\CodeWars.csproj",
+              "RelativeDocumentMoniker": "CodeWars.csproj",
+              "ToolTip": "D:\\CodingProj_CSharp\\CodeWars\\CodeWars.csproj",
+              "RelativeToolTip": "CodeWars.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-23T01:47:42.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CodingProj_CSharp\\CodeWars\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\CodingProj_CSharp\\CodeWars\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T01:46:28.667Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
