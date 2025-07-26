@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public class Program
@@ -6,10 +7,17 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+        foreach (var name in Kata.FriendOrFoe(new[] { "Mark", "Jimmy", "Abel", "Amanda" }))
+        {
+            Console.WriteLine(name);
+        }
     }
 }
 public class Kata
 {
+    public static IEnumerable<string> FriendOrFoe(string[] names) => 
+        names.Where(name => name.Length == 4);
+    
     public static int DescendingOrder2(int num) => Int32.Parse(
         string.Concat(num.ToString().OrderByDescending(x => x))
     );

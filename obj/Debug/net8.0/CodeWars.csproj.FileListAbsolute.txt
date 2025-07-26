@@ -26,3 +26,4 @@ D:\CodingProj_CSharp\CodeWars_CSharp\obj\Debug\net8.0\refint\CodeWars.dll
 D:\CodingProj_CSharp\CodeWars_CSharp\obj\Debug\net8.0\CodeWars.pdb
 D:\CodingProj_CSharp\CodeWars_CSharp\obj\Debug\net8.0\CodeWars.genruntimeconfig.cache
 D:\CodingProj_CSharp\CodeWars_CSharp\obj\Debug\net8.0\ref\CodeWars.dll
+D:\CodingProj_CSharp\CodeWars_CSharp\obj\Debug\net8.0\CodeWars.sourcelink.json
