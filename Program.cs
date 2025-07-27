@@ -1,20 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Kata;
 
 public class Program
 {
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
-        foreach (var name in Kata.FriendOrFoe(new[] { "Mark", "Jimmy", "Abel", "Amanda" }))
+        Console.WriteLine(Past(0,1,1));
+        Console.WriteLine(summation2(8));
+        
+        foreach (var name in FriendOrFoe(new[] { "Mark", "Jimmy", "Abel", "Amanda" }))
         {
             Console.WriteLine(name);
         }
     }
+
 }
 public class Kata
 {
+    public static int Past2(int h, int m, int s) => (int)new TimeSpan(h,m,s).TotalMilliseconds;
+    public static int Past(int h, int m, int s) => s*1000 + h*3600000 + m*60000;
+    
+    public static int summation2(int num) => Enumerable.Range(1,num).Sum();
+    
+    public static int summation(int num)
+    {
+        int sum = 0;
+        for (int i = 1; i <= num; i++)
+        {
+            sum += i;
+        }
+
+        return sum;
+    }
+    
     public static IEnumerable<string> FriendOrFoe(string[] names) => 
         names.Where(name => name.Length == 4);
     
