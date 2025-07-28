@@ -8,6 +8,10 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+        Console.WriteLine(Remove_char("eloquent"));
+        Console.WriteLine($"位运算2的3次方：{1<<3}");
+        Console.WriteLine(CSharpTutorial.Hanoi(3));
+        Console.WriteLine(CSharpTutorial.MySum(10));
         Console.WriteLine(Past(0,1,1));
         Console.WriteLine(summation2(8));
         
@@ -17,9 +21,50 @@ public class Program
         }
     }
 
+    class CSharpTutorial
+    {
+        // 给定 n 个大小各不相同的圆盘和三根柱子（A、B、C），初始时所有圆盘按照从大到小顺序叠在柱子 A 上。请你用程序输出将所有圆盘从柱子 A 移动到柱子 C 的步骤，移动规则如下：
+        // 每次只能移动一个圆盘。
+        // 任何时刻都不能把大盘子放在小盘子上面。
+        // 圆盘只能放在三根柱子之一上。
+        //
+        // 输入： 一个整数 n (1 <= n <= 20)，表示圆盘数量。
+        // 输出： 每一步移动的描述，例如：Move disk 1 from A to C
+        public static int Hanoi2(int disks) => 1 << disks - 1;
+        public static int Hanoi(int disks) => (int)(Math.Pow(2, disks) - 1);
+        // 先把 n-1 移动到temp，再把单个移动到to，最后把n-1移动到to
+        public static int MoveHanoi(int n, char from, char temp, char to)
+        {
+            if (n == 1)
+            {
+                Console.WriteLine($"Move disk 1 from {from} to {to}");
+                return 1;
+            }
+            int times = MoveHanoi(n - 1, from, to, temp);
+            Console.WriteLine($"Move disk {n} from {from} to {to}");
+            times++;
+            times += MoveHanoi(n - 1, temp, from, to);
+            return times;
+        }
+        
+        public static int MySum(int num)
+        {
+            if (num == 1)
+                return 1;
+            else
+            {
+                int sum = num + MySum(num-1);
+                return sum;
+            }
+        }
+    }
+
 }
 public class Kata
 {
+    // 范围表达式，s[1..^1]表示从字符串 s 的 第 1 个字符（索引为 1）开始，一直取到 倒数第 1 个字符之前（不包含倒数第 1 个字符）。
+    // public static string Remove_char(string s) => s[1..^1];
+    public static string Remove_char(string s) => s.Length >=2 ? s.Substring(1, s.Length - 2) : "";
     public static int Past2(int h, int m, int s) => (int)new TimeSpan(h,m,s).TotalMilliseconds;
     public static int Past(int h, int m, int s) => s*1000 + h*3600000 + m*60000;
     
