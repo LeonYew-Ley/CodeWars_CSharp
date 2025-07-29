@@ -62,6 +62,10 @@ public class Program
 }
 public class Kata
 {
+    public static double FindAverage(double[] array)
+    {
+        return array.Length == 0 ? 0 : array.Average();
+    }
     // 范围表达式，s[1..^1]表示从字符串 s 的 第 1 个字符（索引为 1）开始，一直取到 倒数第 1 个字符之前（不包含倒数第 1 个字符）。
     // public static string Remove_char(string s) => s[1..^1];
     public static string Remove_char(string s) => s.Length >=2 ? s.Substring(1, s.Length - 2) : "";
