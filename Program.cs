@@ -66,8 +66,8 @@ public class Kata
 {
     public static char GetGrade(int s1, int s2, int s3)
     {
-        int obj = 0;
-        return grade = obj switch
+        int average = (s1 + s2 + s3) / 3;
+        return average switch
         {
             >= 90 => 'A',
             >= 80 => 'B',
