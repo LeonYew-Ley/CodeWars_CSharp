@@ -64,6 +64,7 @@ public class Program
 }
 public class Kata
 {
+    public static string[] StringToArray(string str) => str.Split(' ');
     public static char GetGrade(int s1, int s2, int s3)
     {
         int average = (s1 + s2 + s3) / 3;
