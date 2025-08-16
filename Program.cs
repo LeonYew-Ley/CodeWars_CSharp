@@ -64,6 +64,7 @@ public class Program
 }
 public class Kata
 {
+    public static string HoopCount(int n) => n >= 10 ? "Great, now move on to tricks" : "Keep at it until you get it";
     public static bool IsSquare(int n) => Math.Sqrt(n) % 1 == 0;
     public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft) => distanceToPump <= mpg * fuelLeft;
     public static string[] StringToArray(string str) => str.Split(' ');
