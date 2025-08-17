@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Text.RegularExpressions;
 using static Kata;
 
 public class Program
@@ -64,6 +65,10 @@ public class Program
 }
 public class Kata
 {
+    public static bool ValidatePin(string pin)
+    {
+        return Regex.IsMatch(pin, @"^(\d{6}|\d{4})\z");
+    }
     public static string HoopCount(int n) => n >= 10 ? "Great, now move on to tricks" : "Keep at it until you get it";
     public static bool IsSquare(int n) => Math.Sqrt(n) % 1 == 0;
     public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft) => distanceToPump <= mpg * fuelLeft;
