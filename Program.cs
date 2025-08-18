@@ -26,6 +26,7 @@ public class Program
 
     class CSharpTutorial
     {
+        // 汉诺塔问题
         // 给定 n 个大小各不相同的圆盘和三根柱子（A、B、C），初始时所有圆盘按照从大到小顺序叠在柱子 A 上。请你用程序输出将所有圆盘从柱子 A 移动到柱子 C 的步骤，移动规则如下：
         // 每次只能移动一个圆盘。
         // 任何时刻都不能把大盘子放在小盘子上面。
@@ -65,6 +66,7 @@ public class Program
 }
 public class Kata
 {
+    public static bool IsTriangle(int a, int b, int c) => (a + b > c) && (a + c > b) && (b + c > a);
     public static bool ValidatePin(string pin)
     {
         return Regex.IsMatch(pin, @"^(\d{6}|\d{4})\z");
