@@ -66,6 +66,7 @@ public class Program
 }
 public class Kata
 {
+    public static int RentalCarCost_MoreSimple(int d) => d * 40 - (d >= 7 ? 50 : d >= 3 ? 20 : 0);
     public static int RentalCarCost_Lambda(int d) => d < 3 ? d * 40 : ((d >= 3 && d < 7) ? d * 40 - 20 : d * 40 - 50);
     public static int RentalCarCost(int d)
     {
