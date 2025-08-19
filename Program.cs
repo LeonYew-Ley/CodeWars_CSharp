@@ -66,6 +66,19 @@ public class Program
 }
 public class Kata
 {
+    public static int RentalCarCost_Lambda(int d) => d < 3 ? d * 40 : ((d >= 3 && d < 7) ? d * 40 - 20 : d * 40 - 50);
+    public static int RentalCarCost(int d)
+    {
+        if (d < 3)
+        {
+            return d * 40;
+        }
+        if (d >= 3 && d < 7)
+        {
+            return d * 40 - 20;
+        }
+        return d * 40 - 50;
+    }
     public static bool IsTriangle(int a, int b, int c) => (a + b > c) && (a + c > b) && (b + c > a);
     public static bool ValidatePin(string pin)
     {
