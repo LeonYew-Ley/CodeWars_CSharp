@@ -66,6 +66,22 @@ public class Program
 }
 public class Kata
 {
+    // 请你思考，使用最简洁的代码
+    public static int GetVowelCount_AI(string str)
+        => str.Count(c => "aeiou".Contains(c));
+    public static int GetVowelCount(string str)
+    {
+        int vowelCount = 0;
+        string vowelString = "aeiou";
+        foreach (char c in str)
+        {
+            if (vowelString.Contains(c))
+            {
+                vowelCount++;
+            }
+        }
+        return vowelCount;
+    }
     public static int RentalCarCost_MoreSimple(int d) => d * 40 - (d >= 7 ? 50 : d >= 3 ? 20 : 0);
     public static int RentalCarCost_Lambda(int d) => d < 3 ? d * 40 : ((d >= 3 && d < 7) ? d * 40 - 20 : d * 40 - 50);
     public static int RentalCarCost(int d)
