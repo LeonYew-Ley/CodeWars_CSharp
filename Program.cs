@@ -66,6 +66,17 @@ public class Program
 }
 public class Kata
 {
+    public static IEnumerable<string> OpenOrSenior_AI_Lambda(int[][] data)
+    => data.Select(single => (single[0] >= 55 && single[1] > 7) ? "Senior" : "Open");
+    public static IEnumerable<string> OpenOrSenior(int[][] data)
+    {
+        var stats = new List<string>();
+        foreach (var single in data)
+        {
+            stats.Add((single[0] >= 55 && single[1] > 7) ? "Senior" : "Open");
+        }
+        return stats;
+    }
     // 请你思考，使用最简洁的代码
     public static int GetVowelCount_AI(string str)
         => str.Count(c => "aeiou".Contains(c));
