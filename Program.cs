@@ -66,6 +66,8 @@ public class Program
 }
 public class Kata
 {
+    public static string BreakCamelCase(string str)
+    => Regex.Replace(str, "(?<!^)([A-Z])", " $1");
     /*
     If you look down the middle of the triangle, you will see square numbers (you don't see them on even rows) like
     1, 4, 9, 16, 25, 36...
