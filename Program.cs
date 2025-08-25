@@ -66,6 +66,7 @@ public class Program
 }
 public class Kata
 {
+    // 点赞文案（String.Format版本）
     public static string Likes_FormatVersion(string[] name)
     {
         string[] pattern = {
@@ -81,6 +82,8 @@ public class Kata
         String.Format(pattern[name.Length], name)
         : String.Format(pattern[4], name[0], name[1], name.Length - 2);
     }
+
+    // 点赞文案（Switch语法糖版本）
     public static string Likes(string[] name)
     {
         return name.Length switch
@@ -92,6 +95,8 @@ public class Kata
             _ => $"{name[0]}, {name[1]} and {name.Length - 2} others like this",
         };
     }
+
+    // 修正错别字（字典版本）
     public static string Correct_MoreReusable(string text)
     {
         Dictionary<char, char> correctMap = new Dictionary<char, char>{
@@ -105,7 +110,11 @@ public class Kata
         }
         return text;
     }
+
+    // 修正错别字（暴力替换）
     public static string Correct(string text) => text.Replace('5', 'S').Replace('0', 'O').Replace('1', 'I');
+
+    // 插入空格（正则表达式）
     public static string BreakCamelCase(string str)
     => Regex.Replace(str, "(?<!^)([A-Z])", " $1");
     /*
