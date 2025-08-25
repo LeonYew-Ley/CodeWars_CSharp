@@ -66,17 +66,42 @@ public class Program
 }
 public class Kata
 {
+    public static string Likes(string[] name)
+    {
+        return name.Length switch
+        {
+            0 => "no one likes this",
+            1 => $"{name[0]} likes this",
+            2 => $"{name[0]} and {name[1]} like this",
+            3 => $"{name[0]}, {name[1]} and {name[2]} like this",
+            _ => $"{name[0]}, {name[1]} and {name.Length - 2} others like this",
+        };
+    }
+    public static string Correct_MoreReusable(string text)
+    {
+        Dictionary<char, char> correctMap = new Dictionary<char, char>{
+            {'5', 'S'},
+            {'0', 'O'},
+            {'1', 'I'}
+        };
+        foreach (var item in correctMap)
+        {
+            text = text.Replace(item.Key, item.Value);
+        }
+        return text;
+    }
+    public static string Correct(string text) => text.Replace('5', 'S').Replace('0', 'O').Replace('1', 'I');
     public static string BreakCamelCase(string str)
     => Regex.Replace(str, "(?<!^)([A-Z])", " $1");
     /*
     If you look down the middle of the triangle, you will see square numbers (you don't see them on even rows) like
     1, 4, 9, 16, 25, 36...
     
-                1                 <-- middle number is 1
-            3     5              <-- middle number is 4
-        7     9    11           <-- middle number is 9
-    13    15     17    19       <-- middle number is 16
-    21    23    25     27    29    <-- middle number is 25
+             1                 <-- middle number is 1
+          3     5              <-- middle number is 4
+       7     9    11           <-- middle number is 9
+   13    15     17    19       <-- middle number is 16
+21    23    25     27    29    <-- middle number is 25
 
     The middle number is also the average of the row numbers
     * The average of the second row is 4: (3+5)/2
