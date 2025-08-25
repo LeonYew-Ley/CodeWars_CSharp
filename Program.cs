@@ -66,6 +66,21 @@ public class Program
 }
 public class Kata
 {
+    public static string Likes_FormatVersion(string[] name)
+    {
+        string[] pattern = {
+            "no one likes this",
+            "{0} likes this",
+            "{0} and {1} like this",
+            "{0}, {1} and {2} like this",
+            "{0}, {1} and {2} others like this"
+        };
+
+        return
+        name.Length < 4 ?
+        String.Format(pattern[name.Length], name)
+        : String.Format(pattern[4], name[0], name[1], name.Length - 2);
+    }
     public static string Likes(string[] name)
     {
         return name.Length switch
