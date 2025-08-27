@@ -9,19 +9,8 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
-        Console.WriteLine(Remove_char("eloquent"));
-        Console.WriteLine($"位运算2的3次方：{1 << 3}");
-        Console.WriteLine(CSharpTutorial.Hanoi(3));
-        Console.WriteLine(CSharpTutorial.MySum(10));
-        Console.WriteLine(Past(0, 1, 1));
-        Console.WriteLine(summation2(8));
-
-        foreach (var name in FriendOrFoe(new[] { "Mark", "Jimmy", "Abel", "Amanda" }))
-        {
-            Console.WriteLine(name);
-        }
-        Console.WriteLine(NbYear(1500, 5, 100, 5000));
+        Console.WriteLine("Hello, CodeWars!");
+        Console.WriteLine(Kata.Find_it(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
     }
 
     class CSharpTutorial
@@ -66,6 +55,24 @@ public class Program
 }
 public class Kata
 {
+    // 找出数组中出现奇数次的元素
+    public static int Find_it_single_line(int[] seq)
+    => seq.GroupBy(x => x)
+        .First(g => g.Count() % 2 == 1)
+        .Key;
+
+    public static int Find_it(int[] seq)
+    {
+        var groups = seq.GroupBy(x => x);
+        foreach (var group in groups)
+        {
+            if (group.Count() % 2 == 1)
+            {
+                return group.Key;
+            }
+        }
+        return 0;
+    }
     // 点赞文案（String.Format版本）
     public static string Likes_FormatVersion(string[] name)
     {
