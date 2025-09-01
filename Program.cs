@@ -58,6 +58,41 @@ public class Kata
     // 数组中每个数字出现的次数不超过x次，超过的删除
     public static int[] DeleteNth(int[] arr, int x)
     {
+        var count = new Dictionary<int, int>();
+        var result = arr.Select(num =>
+        {
+            count.TryGetValue(num, out int times);
+            if (times < x)
+            {
+                count[num] = times + 1;
+                return (include: true, value: num);
+            }
+            count[num] = times + 1;
+            return (include: false, value: num);
+        })
+        .Where(pair => pair.include)
+        .Select(pair => pair.value)
+        .ToArray();
+        return result;
+    }
+
+    public static int[] DeleteNth_Dict(int[] arr, int x)
+    {
+        List<int> result = [];
+        Dictionary<int, int> count = new Dictionary<int, int>();
+        for (int i = 0; i < arr.Length; i++)
+        {
+            int num = arr[i];
+            count.TryGetValue(num, out int times);
+            if (times < x)
+                result.Add(num);
+            count[num] = times + 1;
+        }
+        return result.ToArray();
+    }
+
+    public static int[] DeleteNth_Origin(int[] arr, int x)
+    {
         List<int> result = [];
         int[] count = new int[arr.Max() + 1];
         int actualLength = 0;
@@ -70,7 +105,7 @@ public class Kata
             }
             count[arr[i]]++;
         }
-        return [.. result.GetRange(0, actualLength)];
+        return result.ToArray();
     }
     // 返回字符串中的 'X' 和 'O' 数量是否相等
     public static bool XO(string input)
