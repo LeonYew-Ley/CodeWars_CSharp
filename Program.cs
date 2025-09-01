@@ -10,7 +10,7 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, CodeWars!");
-        Console.WriteLine(Kata.Find_it(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
+        Kata.DeleteNth(new int[] { 20, 37, 20, 21 }, 1);
     }
 
     class CSharpTutorial
@@ -55,6 +55,26 @@ public class Program
 }
 public class Kata
 {
+    // 数组中每个数字出现的次数不超过x次，超过的删除
+    public static int[] DeleteNth(int[] arr, int x)
+    {
+        List<int> result = [];
+        int[] count = new int[arr.Max() + 1];
+        int actualLength = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (count[arr[i]] < x)
+            {
+                result.Add(arr[i]);
+                actualLength++;
+            }
+            count[arr[i]]++;
+        }
+        return [.. result.GetRange(0, actualLength)];
+    }
+    // 返回字符串中的 'X' 和 'O' 数量是否相等
+    public static bool XO(string input)
+    => input.ToLower().Count(c => c == 'x') == input.ToLower().Count(c => c == 'o');
     // 找出数组中出现奇数次的元素
     public static int Find_it_single_line(int[] seq)
     => seq.GroupBy(x => x)
