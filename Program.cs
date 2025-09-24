@@ -10,7 +10,7 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, CodeWars!");
-        Console.WriteLine(Kata.AreYouPlayingBanjo("Martin"));
+        Console.WriteLine(seriesSum(9));
     }
 
     class CSharpTutorial
@@ -55,6 +55,37 @@ public class Program
 }
 public class Kata
 {
+    // 等差数列做分母求和_CodeWars Solution
+    public static string seriesSum_CodeWars(int n){
+        return (from i in Enumerable.Range(0, n) select 1.0 / (3.0 * i + 1)).Sum().ToString("0.00");
+    }
+    // 等差数列做分母求和
+    const double EulerGamma = 0.57721566490153286060;        // 欧拉-马歇罗尼常数
+
+    static double Digamma(double x)
+    {
+        // 如果 x 小，用递推避免出错
+        if (x < 6)
+        {
+            return Digamma(x + 1) - 1.0 / x;
+        }
+        // 近似展开
+        double inv = 1.0 / x;
+        double inv2 = inv * inv;
+        return Math.Log(x) - 0.5 * inv - inv2 / 12.0;
+    }
+	public static string seriesSum (int n) {
+        if (n == 0)
+        {
+            return "0.00";
+        }
+        double left = Digamma((double)1 / 3 + n);
+        double right = Digamma((double)1 / 3);
+        return ((left - right) / 3).ToString("F2");
+    }
+
+
+    // 根据首字母返回是否弹吉他
     public static string AreYouPlayingBanjo(string name) => 
     name.First<char>().Equals('R') || name.First<char>().Equals('r') 
     ? $"{name} plays banjo"
