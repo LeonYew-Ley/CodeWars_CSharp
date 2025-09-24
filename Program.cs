@@ -10,7 +10,7 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, CodeWars!");
-        Kata.DeleteNth(new int[] { 20, 37, 20, 21 }, 1);
+        Console.WriteLine(Kata.AreYouPlayingBanjo("Martin"));
     }
 
     class CSharpTutorial
@@ -55,6 +55,11 @@ public class Program
 }
 public class Kata
 {
+    public static string AreYouPlayingBanjo(string name) => 
+    name.First<char>().Equals('R') || name.First<char>().Equals('r') 
+    ? $"{name} plays banjo"
+    : $"{name} does not play banjo";
+
     // 数组中每个数字出现的次数不超过x次，超过的删除
     public static int[] DeleteNth(int[] arr, int x)
     {
