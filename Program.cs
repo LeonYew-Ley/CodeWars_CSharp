@@ -55,6 +55,9 @@ public class Program
 }
 public class Kata
 {
+    // 返回复印作业需要的纸张数量
+    public static int Paperwork(int n, int m) => n < 0 || m < 0 ? 0 : n * m;
+
     // 等差数列做分母求和_CodeWars Solution
     public static string seriesSum_CodeWars(int n){
         return (from i in Enumerable.Range(0, n) select 1.0 / (3.0 * i + 1)).Sum().ToString("0.00");
