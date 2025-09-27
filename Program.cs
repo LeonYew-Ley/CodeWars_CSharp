@@ -10,45 +10,6 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, CodeWars!");
-
-        // FirstNonConsecutive_1 测试用例
-        Console.WriteLine("\n=== FirstNonConsecutive_1 测试用例 ===");
-
-        // 测试空数组
-        int[] emptyArray = new int[0];
-        Console.WriteLine($"空数组 []: {FirstNonConsecutive_1(emptyArray)}");
-
-        // 测试单元素数组
-        int[] singleElementArray = { 5 };
-        Console.WriteLine($"单元素数组 [5]: {FirstNonConsecutive_1(singleElementArray)}");
-
-        // 测试连续数组
-        int[] consecutiveArray = { 1, 2, 3, 4, 5 };
-        Console.WriteLine($"连续数组 [1,2,3,4,5]: {FirstNonConsecutive_1(consecutiveArray)}");
-
-        // 测试有不连续元素的数组
-        int[] nonConsecutiveArray = { 2, 2, 3, 4, 5, 6, 7 };
-        Console.WriteLine($"不连续数组 [2, 2, 3, 4, 5, 6, 7]: {FirstNonConsecutive_1(nonConsecutiveArray)}");
-
-        // 测试负数数组
-        int[] negativeArray = { -3, -2, 0, 1, 2 };
-        Console.WriteLine($"负数数组 [-3,-2,0,1,2]: {FirstNonConsecutive_1(negativeArray)}");
-
-        // 测试第一个元素就不连续
-        int[] firstNonConsecutiveArray = { 1, 3, 4, 5 };
-        Console.WriteLine($"第一个不连续 [1,3,4,5]: {FirstNonConsecutive_1(firstNonConsecutiveArray)}");
-
-        // 测试大数数组
-        int[] largeNumberArray = { 100, 101, 103, 104 };
-        Console.WriteLine($"大数数组 [100,101,103,104]: {FirstNonConsecutive_1(largeNumberArray)}");
-
-        // 测试递减数组
-        int[] decreasingArray = { 5, 4, 3, 1, 0 };
-        Console.WriteLine($"递减数组 [5,4,3,1,0]: {FirstNonConsecutive_1(decreasingArray)}");
-
-        // 测试重复数字
-        int[] duplicateArray = { 1, 2, 2, 3, 4 };
-        Console.WriteLine($"重复数字 [1,2,2,3,4]: {FirstNonConsecutive_1(duplicateArray)}");
     }
 
     class CSharpTutorial
@@ -93,6 +54,19 @@ public class Program
 }
 public class Kata
 {
+    // 过滤出非负整数
+    public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems)
+    {
+        // return listOfItems
+        // .Where(x => x.GetType() == typeof(int))
+        // .Select(x => (int)x);
+
+        // return listOfItems
+        // .Where(x => x is int)
+        // .Cast<int>();
+
+        return listOfItems.OfType<int>();
+    }
     // 找出第一个不连续的数
     public static object FirstNonConsecutive_1(int[] arr)
     {
