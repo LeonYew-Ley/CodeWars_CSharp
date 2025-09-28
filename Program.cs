@@ -10,6 +10,24 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, CodeWars!");
+
+        // SquareDigits 测试用例
+        Console.WriteLine("\n=== SquareDigits 测试用例 ===");
+        TestSquareDigits(9119, 811181);
+        TestSquareDigits(765, 493625);
+        TestSquareDigits(123, 149);
+        TestSquareDigits(0, 0);
+        TestSquareDigits(1, 1);
+        TestSquareDigits(12, 14);
+        TestSquareDigits(3212, 9414);
+        TestSquareDigits(2112, 4114);
+    }
+
+    private static void TestSquareDigits(int input, int expected)
+    {
+        int result = SquareDigits(input);
+        string status = result == expected ? "✓ 通过" : "✗ 失败";
+        Console.WriteLine($"SquareDigits({input}) = {result}, 期望: {expected} {status}");
     }
 
     class CSharpTutorial
@@ -54,6 +72,40 @@ public class Program
 }
 public class Kata
 {
+    // 返回一个数的每位平方后的数
+    public static int SquareDigits(int n)
+    {
+        /* 取余写法、string.Join */
+        // if (n == 0) return 0;
+
+        // List<int> ints = [];
+        // while (n > 0)
+        // {
+        //     int t = n % 10;
+        //     ints.Add(t * t);
+        //     n /= 10;
+        // }
+        // ints.Reverse();
+        // string ret = string.Join("", ints);
+        // return int.Parse(ret);
+
+        /* String 和 string 的区别：
+        string 才是关键字，用来调用一些 string 类的方法
+        String 是类型名称，在using System 的时候使用
+        
+        string 会被编译成 System.String，两者使用上没什么区别 */
+
+        /* Linq 写法 */
+
+        return int.Parse(
+            String.Concat(
+                n.ToString()
+                .Select(
+                    x => (int)Math.Pow(char.GetNumericValue(x), 2)
+                )
+            )
+        );
+    }
     // 过滤出非负整数
     public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems)
     {
