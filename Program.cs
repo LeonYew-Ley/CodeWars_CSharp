@@ -21,6 +21,10 @@ public class Program
         TestSquareDigits(12, 14);
         TestSquareDigits(3212, 9414);
         TestSquareDigits(2112, 4114);
+
+        // comp 方法测试用例
+        Console.WriteLine("\n=== comp 方法测试用例 ===");
+        TestComp();
     }
 
     private static void TestSquareDigits(int input, int expected)
@@ -28,6 +32,41 @@ public class Program
         int result = SquareDigits(input);
         string status = result == expected ? "✓ 通过" : "✗ 失败";
         Console.WriteLine($"SquareDigits({input}) = {result}, 期望: {expected} {status}");
+    }
+
+    private static void TestComp()
+    {
+        // 测试用例1：你提供的数组
+        int[] a1 = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
+        int[] b1 = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
+        bool result1 = comp(a1, b1);
+        string status1 = result1 ? "✓ 通过" : "✗ 失败";
+        Console.WriteLine($"comp(a1, b1) = {result1}, 期望: true {status1}");
+
+        // 打印数组内容以便调试
+        Console.WriteLine($"a1: [{string.Join(", ", a1)}]");
+        Console.WriteLine($"b1: [{string.Join(", ", b1)}]");
+
+        // 测试用例2：空数组
+        int[] a2 = new int[] { };
+        int[] b2 = new int[] { };
+        bool result2 = comp(a2, b2);
+        string status2 = result2 ? "✓ 通过" : "✗ 失败";
+        Console.WriteLine($"comp(a2, b2) = {result2}, 期望: true {status2}");
+
+        // 测试用例3：不匹配的数组
+        int[] a3 = new int[] { 1, 2, 3 };
+        int[] b3 = new int[] { 1, 4, 9, 16 }; // 长度不同
+        bool result3 = comp(a3, b3);
+        string status3 = result3 ? "✗ 失败" : "✓ 通过";
+        Console.WriteLine($"comp(a3, b3) = {result3}, 期望: false {status3}");
+
+        // 测试用例4：内容不匹配
+        int[] a4 = new int[] { 1, 2, 3 };
+        int[] b4 = new int[] { 1, 4, 8 }; // 8不是3的平方
+        bool result4 = comp(a4, b4);
+        string status4 = result4 ? "✗ 失败" : "✓ 通过";
+        Console.WriteLine($"comp(a4, b4) = {result4}, 期望: false {status4}");
     }
 
     class CSharpTutorial
@@ -72,6 +111,19 @@ public class Program
 }
 public class Kata
 {
+    // 判断 a,b 两个数组（集合）是否相等（标准是：b的元素是a中的元素的平方）
+    // 重数一致，不论顺序
+    public static bool comp(int[] a, int[] b)
+    {
+        // 注意这里的判空操作，应该先判空，再访问Length，否则会报错 NullReferenceException
+        if (a == null || b == null || a.Length != b.Length)
+            return false;
+        var aSquared = a.Select(x => x * x).OrderBy(x => x).ToArray();
+        var bSorted = b.OrderBy(x => x).ToArray();
+        bool ret = aSquared.SequenceEqual(bSorted);
+        return ret;
+    }
+
     // 返回一个数的每位平方后的数
     public static int SquareDigits(int n)
     {
