@@ -111,6 +111,9 @@ public class Program
 }
 public class Kata
 {
+    // 根据 bool 返回 string 类型的 Value
+    public static string BooleanToString(bool b) => b ? "True" : "False";
+
     // 判断 a,b 两个数组（集合）是否相等（标准是：b的元素是a中的元素的平方）
     // 重数一致，不论顺序
     public static bool comp(int[] a, int[] b)
